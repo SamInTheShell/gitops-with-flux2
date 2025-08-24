@@ -19,25 +19,25 @@ spec:
     remediation:
       remediateLastFailure: true
   values:
+    plugins:
+    - retrodaredevil-wildgraphql-datasource
     datasources:
-    datasources.yaml:
-      apiVersion: 1
-        plugins:
-        - retrodaredevil-wildgraphql-datasource
+      datasources.yaml:
+        apiVersion: 1
         datasources:
         - access: proxy
-        isDefault: true
-        name: Metrics (Prometheus)
-        type: prometheus
-        url: http://prometheus-server
+          isDefault: true
+          name: Metrics (Prometheus)
+          type: prometheus
+          url: http://prometheus-server
         - access: proxy
-        isDefault: false
-        jsonData: {}
-        name: Logs (Loki)
-        type: loki
-        uid: ""
-        url: http://loki:3100
-        version: 1
+          isDefault: false
+          jsonData: {}
+          name: Logs (Loki)
+          type: loki
+          uid: ""
+          url: http://loki:3100
+          version: 1
     sidecar:
       datasources:
         enabled: true
