@@ -29,3 +29,5 @@ spec:
     remediation:
       remediateLastFailure: true
   values:
+    dashboard:
+        loginMode: SKIP
