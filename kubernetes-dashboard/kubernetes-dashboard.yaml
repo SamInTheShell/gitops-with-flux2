@@ -29,8 +29,3 @@ spec:
     remediation:
       remediateLastFailure: true
   values:
-    web:
-      containers:
-        env:
-          - name: DASHBOARD_LOGIN_MODE
-            value: "SKIP"
