@@ -22,7 +22,7 @@ spec:
     datasources:
     datasources.yaml:
       apiVersion: 1
-        plugins: # Modify this section to auto-install plugins on deployment
+        plugins:
         - retrodaredevil-wildgraphql-datasource
         datasources:
         - access: proxy
