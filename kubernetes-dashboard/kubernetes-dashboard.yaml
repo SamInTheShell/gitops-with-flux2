@@ -29,3 +29,19 @@ spec:
     remediation:
       remediateLastFailure: true
   values:
+    ## Uncommand and configure for OIDC auth
+    # web:
+    #   containers:
+    #     env:
+    #       - name: DASHBOARD_LOGIN_MODE
+    #         value: "OIDC"
+    #       - name: OIDC_CLIENT_ID
+    #         value: "<google-client-id>"
+    #       - name: OIDC_CLIENT_SECRET
+    #         value: "<google-client-secret>"
+    #       - name: OIDC_ISSUER_URL
+    #         value: "https://accounts.google.com"
+    #       - name: OIDC_SCOPE
+    #         value: "openid email profile"
+    #       - name: OIDC_REDIRECT_URL
+    #         value: "https://your-dashboard-url/oauth2/callback"
