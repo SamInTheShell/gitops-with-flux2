@@ -1,0 +1,28 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  namespace: metrics-system
+  name: metrics-server
+spec:
+  chart:
+    spec:
+      chart: metrics-server
+      sourceRef:
+        kind: HelmRepository
+        name: metrics-server
+      version: ~3.13.0
+  dependsOn: []
+  interval: 5m
+  releaseName: metrics-server
+  upgrade:
+    remediation:
+      remediateLastFailure: true
+  values:
+    # this is necessary for some CNI's like calico and cilium
+    # hostNetwork:
+    #   enabled: true
+
+    # necessary when cluster CA is not setup correctly, typically in dev
+    args:
+    - --kubelet-insecure-tls

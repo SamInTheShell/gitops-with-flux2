@@ -1,0 +1,34 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  namespace: metrics-system
+  name: prometheus
+spec:
+  chart:
+    spec:
+      chart: prometheus
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community
+      version: ~27.30.0
+  dependsOn: []
+  interval: 5m
+  releaseName: prometheus
+  upgrade:
+    remediation:
+      remediateLastFailure: true
+  values:
+    alertmanager:
+      enabled: true
+      persistentVolume:
+        enabled: true
+        size: 4Gi
+    prometheus-node-exporter:
+      enabled: true
+    server:
+      enabled: true
+      persistentVolume:
+        enabled: true
+        size: 12Gi
+      retention: 15d
