@@ -29,5 +29,8 @@ spec:
     remediation:
       remediateLastFailure: true
   values:
-    dashboard:
-        loginMode: SKIP
+    web:
+      containers:
+        env:
+          - name: DASHBOARD_LOGIN_MODE
+            value: "SKIP"
