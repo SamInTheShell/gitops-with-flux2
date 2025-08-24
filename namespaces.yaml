@@ -40,3 +40,8 @@ kind: Namespace
 metadata:
   name: database-system
 
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kubernetes-dashboard
